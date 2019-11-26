@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Howest Fresh</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/reset.css"/>
+    <link rel="stylesheet" href="assets/css/screen.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>Howest Fresh</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html" >Collection</a></li>
+            <li><a href="make-a-meal.html" class="active">Make a meal</a></li>
+            <li><a href="#" class="viewcart"><span></span>view cart</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<main>
+
+    <section id="makeameal">
+        <h2>
+           Make a meal
+        </h2>
+
+    </section>
+
+
+
+</main>
+<footer>
+    <div>
+        <h2>Address</h2>
+        <address>
+            Rijselstraat 5, <br/>
+            8000 Brugge
+        </address>
+    </div>
+    <div>
+        <h2>Contact</h2>
+        <p>Drop us a line at <a href="mailto:info@howestfresh.be">info@howestfresh.be</a></p>
+    </div>
+    <p>All images courtesy of flaticon</p>
+</footer>
+<section id="popup" class="hidden">
+
+    <div class="contentwrapper"></div>
+    <a href="#" class="close">X</a>
+</section>
+<section id="cart" class="hidden">
+    <div id="cartoverview">
+        <h2>Your shopping cart</h2>
+        <p>You have selected the following items so far:</p>
+        <div class="items">
+
+        </div>
+
+        <a href="#" class="order">Proceed to checkout</a>
+    </div>
+    <div id="personalinformation" class="hidden">
+        <form>
+            <label for="ordername">Full name:</label>
+            <input type="text" id="ordername" name="ordername"/>
+
+            <label for="orderaddress">Address:</label>
+            <textarea id="orderaddress" name="orderaddress"></textarea>
+
+            <label>Payment method:</label>
+            <input type="radio" name="paymentmethod" id="payment-card" value="card"/><label
+                for="payment-card">Card</label>
+            <input type="radio" name="paymentmethod" id="payment-bitcoin" value="bitcoin"/><label for="payment-bitcoin">Bitcoin</label>
+            <input type="radio" name="paymentmethod" id="payment-goldbars" value="gold_bars"/><label
+                for="payment-goldbars">Gold
+            bars</label>
+            <input type="radio" name="paymentmethod" id="payment-kind" value="in_kind"/><label for="payment-kind">In
+            kind</label>
+
+            <input type="submit" value="confirm order" class="order"/>
+        </form>
+    </div>
+    <div id="confirmation" class="hidden">
+        <h2>Thank you <span class="personname"></span> for your order</h2>
+        <p>Your order of <strong class="price"></strong> will be paid for <strong class="paymentmethod"></strong>.<br /> We will ship your meals upon payment
+            confirmation</p>
+    </div>
+    <a href="#" class="close">X</a>
+</section>
+
+
+</body>
+</html>
