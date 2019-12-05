@@ -251,7 +251,3 @@ const meals = [
         cook: 'James Wise',
         quantity: 10
     }];
-
-
-
-
