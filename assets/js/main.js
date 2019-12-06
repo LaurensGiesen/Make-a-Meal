@@ -4,15 +4,18 @@
 document.addEventListener('DOMContentLoaded',init);
 
 function init() {
- inladen();
+ inladenDishes()
+
 }
-function inladen() {
+
+
+function inladenDishes() {
     meals.forEach(function(meal){
         document.querySelector('.flexcontainer').innerHTML +=
             `<article data-id="${meal.id}">
                 <h3>${meal.title}</h3>
                 <figure>
-                    <img src="images/${meal.img}"
+                    <img onclick="popUpDishes()" src="images/${meal.img}"
                          alt="${meal.title}"
                          title="${meal.title}">
                     <figcaption>
@@ -26,4 +29,8 @@ function inladen() {
             </article>`
     })
     }
+function popUpDishes(){
+    console.log("popup");
+    }
+
 
