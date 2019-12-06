@@ -7,7 +7,8 @@ function init() {
  inLadenDishes();
 document.querySelectorAll(`img`).forEach(function (img) {
     img.addEventListener(`click`,popUpDishes);
-})
+});
+    mealOfTheDay();
 }
 
 
@@ -40,4 +41,11 @@ function popUpDishes(){
     document.querySelector(`#popup`).classList.remove(`hidden`);
     }
 
+
+function mealOfTheDay() {
+    let randomMeals = meals[Math.floor((Math.random() * meals.length))];
+    console.log(randomMeals);
+    let imageMeal = document.querySelector(`#mealoftheday`);
+    imageMeal.innerHTML += `<img src="images/${randomMeals.img}" alt="${randomMeals.title}" title="${randomMeals.title}">`;
+}
 
