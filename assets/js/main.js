@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded',init);
 
 function init() {
  inLadenDishes();
-
+document.querySelectorAll(`img`).forEach(function (img) {
+    img.addEventListener(`click`,popUpDishes);
+})
 }
 
 
@@ -15,7 +17,7 @@ function inLadenDishes() {
             `<article data-id="${meal.id}">
                 <h3>${meal.title}</h3>
                 <figure>
-                    <img onclick="popUpDishes()" src="images/${meal.img}"
+                    <img src="images/${meal.img}"
                          alt="${meal.title}"
                          title="${meal.title}">
                     <figcaption>
@@ -29,11 +31,13 @@ function inLadenDishes() {
             </article>`
     })
     }
+
+    // querySelectAll(dien image).forEach(function(img){
+    //  img.addEventListner()
+    // }
 function popUpDishes(){
     console.log("popup");
-
-
-
+    document.querySelector(`#popup`).classList.remove(`hidden`);
     }
 
 
