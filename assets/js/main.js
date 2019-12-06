@@ -4,12 +4,12 @@
 document.addEventListener('DOMContentLoaded',init);
 
 function init() {
- inladenDishes()
+ inLadenDishes();
 
 }
 
 
-function inladenDishes() {
+function inLadenDishes() {
     meals.forEach(function(meal){
         document.querySelector('.flexcontainer').innerHTML +=
             `<article data-id="${meal.id}">
@@ -31,6 +31,9 @@ function inladenDishes() {
     }
 function popUpDishes(){
     console.log("popup");
+
+
+
     }
 
 
