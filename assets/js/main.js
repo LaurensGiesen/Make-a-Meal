@@ -4,11 +4,12 @@
 document.addEventListener('DOMContentLoaded',init);
 
 function init() {
-    mealOfTheDay();
     inLadenDishes();
-document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
-
+    mealOfTheDay();
     totalMeals();
+document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
+document.querySelector(`.close`).addEventListener(`click`,closePopUpDishes);
+
 }
 
 function inLadenDishes() {
@@ -32,11 +33,17 @@ function inLadenDishes() {
     })
     }
 
-function popUpDishes(){
-    console.log("popup");
+function popUpDishes(e) {
+    e.preventDefault();
     document.querySelector(`#popup`).classList.remove(`hidden`);
-    }
+}
 
+
+function closePopUpDishes(e) {
+    e.preventDefault();
+    document.querySelector(`#popup`).classList.add(`hidden`);
+    console.log(`sluiten`);
+}
 
 function mealOfTheDay(){
    let randomMeals =  meals[Math.floor((Math.random() * meals.length))];
