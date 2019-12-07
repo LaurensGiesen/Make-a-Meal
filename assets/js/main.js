@@ -4,13 +4,12 @@
 document.addEventListener('DOMContentLoaded',init);
 
 function init() {
- inLadenDishes();
-document.querySelectorAll(`img`).forEach(function (img) {
-    img.addEventListener(`click`,popUpDishes);
-});
     mealOfTheDay();
-}
+    inLadenDishes();
+document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
 
+    totalMeals();
+}
 
 function inLadenDishes() {
     meals.forEach(function(meal){
@@ -33,9 +32,6 @@ function inLadenDishes() {
     })
     }
 
-    // querySelectAll(dien image).forEach(function(img){
-    //  img.addEventListner()
-    // }
 function popUpDishes(){
     console.log("popup");
     document.querySelector(`#popup`).classList.remove(`hidden`);
@@ -44,10 +40,14 @@ function popUpDishes(){
 
 function mealOfTheDay(){
    let randomMeals =  meals[Math.floor((Math.random() * meals.length))];
-   console.log(randomMeals);
    let imageMeal = document.querySelector(`#mealoftheday`);
    imageMeal.innerHTML += `<img src="images/${randomMeals.img}" alt="${randomMeals.title}" title="${randomMeals.title}">`;
+
    let textMeal = document.querySelector(`#mealoftheday div p+p`);
    textMeal.innerHTML += `<strong>${randomMeals.title}</strong>`;
 }
 
+function totalMeals() {
+    let total = document.querySelector(`main aside p`);
+    total.innerHTML = `<span>${meals.length}</span> deliverable dishes and counting!`;
+}

@@ -60,6 +60,18 @@ const meals = [
         quantity: 10
     },
     {
+        id: 6,
+        title: 'Grilled Basil Chicken and Tomatoes',
+        img: 'Grilled-Basil-Chicken-and-Tomatoes.jpg',
+        book: 1,
+        calories: 103,
+        servings: 1,
+        type: 'lunch',
+        price: 7,
+        cook: 'Jenny Jefferson',
+        quantity: 10
+    },
+    {
         id: 7,
         title: 'Parsley-Crusted Cod',
         img: 'Parsley-Crusted-Cod.jpg',
