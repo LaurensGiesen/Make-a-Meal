@@ -11,6 +11,7 @@ function init() {
     document.querySelector(`.viewcart`).addEventListener(`click`,popUpViewCart);
     document.querySelector(`#cart .close`).addEventListener(`click`,closePopUps);
     document.querySelector(`#cart .order`).addEventListener(`click`,proceedToCheckOut);
+
 }
 
 function inLadenDishes() {
@@ -103,4 +104,6 @@ function closePopUps(e) {
 function proceedToCheckOut(e) {
     e.preventDefault();
     document.querySelector(`#personalinformation`).classList.remove(`hidden`);
+    document.querySelector(`#cartoverview`).classList.add(`hidden`);
+
 }
