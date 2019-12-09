@@ -107,3 +107,6 @@ function proceedToCheckOut(e) {
     e.preventDefault();
     document.querySelector(`#personalinformation`).classList.remove(`hidden`);
 }
+
+
+
