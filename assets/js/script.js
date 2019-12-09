@@ -1,5 +1,4 @@
 'use strict';
-
 /*----init----*/
 document.addEventListener('DOMContentLoaded',init);
 
@@ -38,9 +37,7 @@ function inLadenDishes() {
 function popUpDishes(e) {
     e.preventDefault();
     document.querySelector(`#popup`).classList.remove(`hidden`);
-
-     let selectedMealID = e.target.parentNode.parentNode.getAttribute(`data-id`) -1;
-         console.log(selectedMealID);
+     let selectedMealID = e.target.closest("article").getAttribute(`data-id`) -1;
         document.querySelector('#popup .contentwrapper').innerHTML =
             `<article data-id="${meals[selectedMealID].id}">
                 <h3>${meals[selectedMealID].title}</h3>
@@ -107,6 +104,3 @@ function proceedToCheckOut(e) {
     e.preventDefault();
     document.querySelector(`#personalinformation`).classList.remove(`hidden`);
 }
-
-
-
