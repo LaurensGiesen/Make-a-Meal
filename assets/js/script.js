@@ -7,8 +7,9 @@ function init() {
     inLadenDishes();
     mealOfTheDay();
     totalMeals();
-document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
-document.querySelector(`.close`).addEventListener(`click`,closePopUpDishes);
+    document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
+    document.querySelector(`.close`).addEventListener(`click`,closePopUpDishes);
+    document.querySelector(`.viewcart`).addEventListener(`click`,popUpViewCart);
 
 }
 
@@ -84,7 +85,15 @@ function mealOfTheDay(){
    textMeal.innerHTML += `<strong>${randomMeals.title}</strong>`;
 }
 
+
 function totalMeals() {
     let total = document.querySelector(`main aside p`);
     total.innerHTML = `<span>${meals.length}</span> deliverable dishes and counting!`;
+}
+
+function popUpViewCart(e) {
+    e.preventDefault();
+    console.log('shoppingcart');
+    document.querySelector(`#cart`).classList.remove(`hidden`);
+
 }
