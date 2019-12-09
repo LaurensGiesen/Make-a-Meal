@@ -10,7 +10,8 @@ function init() {
     document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
     document.querySelector(`.close`).addEventListener(`click`,closePopUpDishes);
     document.querySelector(`.viewcart`).addEventListener(`click`,popUpViewCart);
-
+    document.querySelector(`#cart .close`).addEventListener(`click`,closePopUps);
+    document.querySelector(`#cart .order`).addEventListener(`click`,proceedToCheckOut);
 }
 
 function inLadenDishes() {
@@ -66,7 +67,6 @@ function popUpDishes(e) {
                     <p>€ <span>${meals[selectedMealID].price}</span>/pp</p>
                     <a href="#" class="order">Order</a>
                 </div>
-                
             </article>`
 }
 
@@ -95,5 +95,15 @@ function popUpViewCart(e) {
     e.preventDefault();
     console.log('shoppingcart');
     document.querySelector(`#cart`).classList.remove(`hidden`);
+}
 
+function closePopUps(e) {
+    e.preventDefault();
+    console.log("jk");
+    document.querySelector(`#cart`).classList.add(`hidden`);
+}
+
+function proceedToCheckOut(e) {
+    e.preventDefault();
+    document.querySelector(`#personalinformation`).classList.remove(`hidden`);
 }

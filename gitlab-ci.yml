@@ -1,0 +1,9 @@
+image: op-gitlab.howest.be:4567/docker-registry/html-validator
+
+stages:
+  - QA
+
+validateHTML:
+  stage: QA
+  script:
+    - java -jar /root/node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html ./
