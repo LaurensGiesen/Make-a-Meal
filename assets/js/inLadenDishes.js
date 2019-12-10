@@ -7,6 +7,8 @@ function init() {
 }
 
 function inLadenDishes() {
+    let meals = JSON.parse(localStorage.getItem(`localMeals`));
+
     meals.forEach(function(meal){
         document.querySelector('.flexcontainer').innerHTML +=
             `<article data-id="${meal.id}">

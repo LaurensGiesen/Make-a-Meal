@@ -8,9 +8,14 @@ function init() {
 }
 
 function popUpDishes(e) {
+    let meals = JSON.parse(localStorage.getItem(`localMeals`));
     e.preventDefault();
     document.querySelector(`#popup`).classList.remove(`hidden`);
-    let selectedMealID = e.target.closest("article").getAttribute(`data-id`) -1;
+    if (e.target.tagName === "A") {
+        document.querySelector(`#popup`).classList.add(`hidden`);
+        return
+    }
+        let selectedMealID = e.target.closest("article").getAttribute(`data-id`) -1;
     document.querySelector('#popup .contentwrapper').innerHTML =
         `<article data-id="${meals[selectedMealID].id}">
                 <h3>${meals[selectedMealID].title}</h3>
