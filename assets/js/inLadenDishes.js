@@ -1,14 +1,16 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded',init2);
 
-function init() {
-    inLadenDishes();
+function init2() {
+    inLadenDishes(null);
 }
 
-function inLadenDishes() {
-    let meals = JSON.parse(localStorage.getItem(`localMeals`));
-
+function inLadenDishes(meals) {
+    document.querySelector('.flexcontainer').innerHTML ="";
+    if(meals === null) {
+        meals = JSON.parse(localStorage.getItem(`localMeals`));
+    }
     meals.forEach(function(meal){
         document.querySelector('.flexcontainer').innerHTML +=
             `<article data-id="${meal.id}">

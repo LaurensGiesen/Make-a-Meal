@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', init6);
 function init6() {
     inLadenValues();
     document.querySelector('#sortby').addEventListener('change', mealProperty);
+    document.querySelector('#direction').addEventListener('change', adjustMealsDirection);
 }
+
 function inLadenValues() {
     document.querySelector(`#sortby`).innerHTML =
         `<option value="book">Book</option>
@@ -21,11 +23,12 @@ function inLadenValues() {
 }
 
 function mealProperty(e) {
+    
     let selectedProperty = e.target.value;
     let ascOrDesc = document.querySelector('#direction').selectedIndex;
     meals.sort(function (a, b) {
         let propertyA = a[selectedProperty];
-        let propertyB = b[selectedProperty];   
+        let propertyB = b[selectedProperty];
 
         if(propertyA < propertyB){
             return -1;
@@ -36,5 +39,10 @@ function mealProperty(e) {
         return 0;
     });
     if(ascOrDesc === 1){ meals.reverse()}
+    inLadenDishes(meals);
+}
+
+function adjustMealsDirection(){
+    meals.reverse();
     inLadenDishes(meals);
 }
