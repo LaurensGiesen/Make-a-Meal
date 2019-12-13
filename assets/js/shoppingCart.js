@@ -1,5 +1,12 @@
 "use strict";
 
+let cartTeller = 0;
+
+localStorage.setItem(`cartTeller`, cartTeller);
+
+
+
+
 document.addEventListener('DOMContentLoaded',init5);
 
 function init5() {
@@ -9,6 +16,7 @@ function init5() {
     document.querySelector(`#cart .close`).addEventListener(`click`,closePopUps);
     document.querySelector(`#cart .order`).addEventListener(`click`,proceedToCheckOut);
     document.querySelector(`#personalinformation .order`).addEventListener(`click`,finalPopUp);
+    tellerCart();
 }
 
 function popUpViewCart(e) {
@@ -31,4 +39,12 @@ function finalPopUp(e) {
     e.preventDefault();
     document.querySelector(`#personalinformation`).classList.add(`hidden`);
     document.querySelector(`#confirmation`).classList.remove(`hidden`);
+}
+
+function tellerCart() {
+    if (cartTeller < 1){
+    }
+    else{
+        document.querySelector(`viewcart`).innerHTML = `<span style =\"background-color: #ff7cd8;\"></span>view cart`;
+    }
 }
