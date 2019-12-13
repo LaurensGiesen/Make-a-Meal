@@ -17,6 +17,7 @@ function init5() {
     document.querySelector(`#cart .order`).addEventListener(`click`,proceedToCheckOut);
     document.querySelector(`#personalinformation .order`).addEventListener(`click`,finalPopUp);
     tellerCart();
+    orderButton();
 }
 
 function popUpViewCart(e) {
@@ -42,9 +43,24 @@ function finalPopUp(e) {
 }
 
 function tellerCart() {
-    if (cartTeller < 1){
+    if (cartTeller < 1) {
+    } else {
+        document.querySelector('.viewcart').innerHTML = "<span style=\"background-color: #ff7cd8 ;\"></span>view cart";
     }
-    else{
-        document.querySelector(`viewcart`).innerHTML = `<span style =\"background-color: #ff7cd8;\"></span>view cart`;
+}
+function orderButton() {
+    let order = document.querySelectorAll('.info .order');
+    for (let i = 0; i < order.length; i++) {
+        order[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            plusTeller();
+        });
     }
+}
+
+function plusTeller() {
+    cartTeller += 1;
+    localStorage.setItem('cartTeller', cartTeller);
+    tellerCart();
+    document.querySelector('.viewcart span').innerHTML = localStorage.getItem('cartTeller');
 }
