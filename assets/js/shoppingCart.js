@@ -28,6 +28,7 @@ function init5() {
     document.querySelector(`#personalinformation .order`).addEventListener(`click`,finalPopUp);
     tellerCart();
     orderButton();
+
 }
 
 function popUpViewCart(e) {
@@ -44,12 +45,14 @@ function proceedToCheckOut(e) {
     e.preventDefault();
     document.querySelector(`#personalinformation`).classList.remove(`hidden`);
     document.querySelector(`#cartoverview`).classList.add(`hidden`);
+    document.querySelector(`form .order`).addEventListener(`click`, confirm);
 }
 
 function finalPopUp(e) {
     e.preventDefault();
     document.querySelector(`#personalinformation`).classList.add(`hidden`);
     document.querySelector(`#confirmation`).classList.remove(`hidden`);
+
 }
 
 function tellerCart() {
@@ -113,4 +116,41 @@ function addToCart(i){
     let totalPrice = rowFoot.insertCell(1);
     empty.innerHTML = "";
     totalPrice.innerHTML = "Price: € " + currentTotalPrice;
+}
+
+function confirm(e) {
+    e.preventDefault();
+    document.querySelector('#personalinformation').style.display ="none";
+    document.querySelector('#confirmation').style.display ="block";
+    let nameConfirm = document.querySelector("span.personname");let payment;
+    let name = document.getElementById("ordername");nameConfirm.innerHTML = name.value;
+    let price = localStorage.getItem('lsPrice');
+    document.querySelector('#confirmation .price').innerHTML = "€" + price;
+
+    let paymentConfirm = document.querySelector("strong.paymentmethod");
+    if (document.getElementById('payment-card').checked) {
+        payment = document.getElementById('payment-card');
+        Payment();
+    }
+    if (document.getElementById('payment-bitcoin').checked) {
+        payment = document.getElementById('payment-bitcoin');
+        Payment();
+    }
+    if (document.getElementById('payment-goldbars').checked) {
+        payment = document.getElementById('payment-goldbars');
+        Payment();
+    }
+    if (document.getElementById('payment-kind').checked) {
+        payment = document.getElementById('payment-kind');
+        Payment();
+    }
+    function Payment() {
+        paymentConfirm.innerHTML = " in "+payment.nextSibling.textContent;
+    }
+
+    localStorage.removeItem('cartTeller');
+    let span = document.querySelector('.viewcart span');
+    span.parentNode.removeChild(span);
+    localStorage.removeItem('currentCart');
+    localStorage.removeItem('lsPrice');
 }
