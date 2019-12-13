@@ -13,7 +13,6 @@ function init5() {
 
 function popUpViewCart(e) {
     e.preventDefault();
-    console.log('shoppingcart');
     document.querySelector(`#cart`).classList.remove(`hidden`);
 }
 
