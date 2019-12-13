@@ -3,9 +3,9 @@
 // document.addEventListener('DOMContentLoaded',init);
 //
 // function init() {
-    // inLadenDishes();
-    // mealOfTheDay();
-    // totalMeals();
+//     inLadenDishes();
+//     mealOfTheDay();
+//     totalMeals();
 //     document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
 //     document.querySelector(`.close`).addEventListener(`click`,closePopUpDishes);
 //     document.querySelector(`.viewcart`).addEventListener(`click`,popUpViewCart);

@@ -1,8 +1,8 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded',init5);
 
-function init() {
+function init5() {
     document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
     document.querySelector(`.close`).addEventListener(`click`,closePopUpDishes);
     document.querySelector(`.viewcart`).addEventListener(`click`,popUpViewCart);

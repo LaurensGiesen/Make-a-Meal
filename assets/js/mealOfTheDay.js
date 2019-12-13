@@ -1,8 +1,8 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded',init4);
 
-function init() {
+function init4() {
     mealOfTheDay();
 }
 

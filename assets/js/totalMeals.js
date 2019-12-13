@@ -1,8 +1,8 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded',init7);
 
-function init() {
+function init7() {
     totalMeals();
 }
 

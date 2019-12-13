@@ -14,22 +14,29 @@ function DOMelement(){
 function setEventListeners(){
     searchField.addEventListener("keyup", SearchList);
 }
-function SearchList(){
+function SearchList() {
     let length = meals.length;
     let searchString = searchField.value;
-
-    for(let i = 0; i < length; i++){
+    document.querySelector('.flexcontainer').innerHTML = "";
+    for (let i = 0; i < length; i++) {
         let txtValue = meals[i].title.toLowerCase();
-        if(txtValue.indexOf(searchString) > -1){
-            let displayNone;
-            let showId = i + 1;
-            displayNone = document.querySelector("[data-id='"+ showId + "'");
-            displayNone.style.display = "";
-        } else{
-            let displayNone;
-            let verwijderId = i + 1;
-            displayNone = document.querySelector("[data-id='"+ verwijderId + "'");
-            displayNone.style.display = "none";
+        if (txtValue.includes(searchString)) {
+            document.querySelector('.flexcontainer').innerHTML +=
+                `<article data-id="${meals[i].id}">
+                <h3>${meals[i].title}</h3>
+                <figure>
+                    <img src="images/${meals[i].img}"
+                         alt="${meals[i].title}"
+                         title="${meals[i].title}">
+                    <figcaption>
+                        Meal by: <span>${meals[i].cook}</span>
+                    </figcaption>
+                </figure>
+                <div class="info">
+                    <p>€ <span>${meals[i].price}</span>/pp</p>
+                    <a href="#" class="order">Order</a>
+                </div>
+            </article>`
         }
     }
 }
