@@ -1,34 +1,45 @@
 "use strict";
 
-
-let localStorageMeals = JSON.parse(localStorage.getItem(`localMeals`));
+let localStorageMeals =  getMeals();
 
 let cartTeller = 0;
 let currentCart = [];
 let totalPrice = 0;
 
+function getCurrentCart() {
+    if (localStorage.getItem('currentCart') === null) {
+        localStorage.setItem(`currentCart`, JSON.stringify(currentCart));
+        localStorage.setItem(`cartTeller`, cartTeller);
+        localStorage.setItem(`lsPrice`, totalPrice);
+        document.querySelector('.cart').innerHTML = `<a href='#' class='viewcart'>view cart</a>`;
+    } else if (localStorage.getItem('currentCart') !== null && localStorage.cartTeller >= 1) {
+        currentCart = JSON.parse(localStorage.getItem('currentCart'));
+        console.log(currentCart);
+        cartTeller = parseInt(localStorage.getItem('cartTeller'));
+        totalPrice = parseInt(localStorage.getItem('lsPrice'));
+        displayCart();
+    } else {
+        document.querySelector('.cart').innerHTML = `<a href='#' class='viewcart'>view cart</a>`;
+    }
+}
 
-localStorage.setItem(`cartTeller`, cartTeller);
-localStorage.setItem(`currentCart`, JSON.stringify(currentCart));
-localStorage.setItem(`lsPrice`, totalPrice);
+function displayCart() {
+    document.querySelector('.cart').innerHTML = "<a href='#' class='viewcart'><span>" + cartTeller + "</span> view cart</a>";
+    document.querySelector('.items table').innerHTML = '<tr><th>Meal</th><th>Price</th></tr>';
+    currentCart.forEach(e => {
+        document.querySelector('.items table').innerHTML += '<tr><td>' + e.title + '</td><td>€' + e.price + '</td></tr>';
+    });
+    document.querySelector('.items table').innerHTML += '<tr><td></td><td>Price: €' + totalPrice + '</td></tr>'
+}
 
+function getMeals() {
+    let localStorageMeals = JSON.parse(localStorage.getItem(`localMeals`));
+    if (localStorageMeals === null) {
+        // opslaan in localstorage
+        return meals;
+    }
 
-
-
-
-
-document.addEventListener('DOMContentLoaded',init5);
-
-function init5() {
-    document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
-    document.querySelector(`.close`).addEventListener(`click`,closePopUpDishes);
-    document.querySelector(`.viewcart`).addEventListener(`click`,popUpViewCart);
-    document.querySelector(`#cart .close`).addEventListener(`click`,closePopUps);
-    document.querySelector(`#cart .order`).addEventListener(`click`,proceedToCheckOut);
-    document.querySelector(`#personalinformation .order`).addEventListener(`click`,finalPopUp);
-    tellerCart();
-    orderButton();
-
+    return localStorageMeals;
 }
 
 function popUpViewCart(e) {
@@ -52,17 +63,10 @@ function finalPopUp(e) {
     e.preventDefault();
     document.querySelector(`#personalinformation`).classList.add(`hidden`);
     document.querySelector(`#confirmation`).classList.remove(`hidden`);
-
 }
 
-function tellerCart() {
-    if (cartTeller < 1) {
-    } else {
-        document.querySelector('.viewcart').innerHTML = "<span style=\"background-color: #ff7cd8 ;\"></span>view cart";
-    }
-}
 function orderButton() {
-    let order = document.querySelectorAll('.info .order');
+    let order = document.querySelectorAll('.flexcontainer .order');
     for (let i = 0; i < order.length; i++) {
         order[i].addEventListener("click", function(e) {
             e.preventDefault();
@@ -73,49 +77,24 @@ function orderButton() {
 }
 
 function plusTeller() {
+    cartTeller = parseInt(localStorage.getItem('cartTeller'));
     cartTeller += 1;
     localStorage.setItem('cartTeller', cartTeller);
-    tellerCart();
-    document.querySelector('.viewcart span').innerHTML = localStorage.getItem('cartTeller');
+    document.querySelector('.cart').innerHTML = "<a href='#' class='viewcart'><span>" + cartTeller + "</span> view cart</a>";
 }
 
-
 function addToCart(i){
-    currentCart.push(i);
-    localStorage.setItem('currentCart', currentCart);
+    let obj = {
+        title: localStorageMeals[i].title,
+        price: localStorageMeals[i].price
+    };
+    currentCart.push(obj);
+    localStorage.setItem('currentCart', JSON.stringify(currentCart));
+    totalPrice = JSON.parse(localStorage.getItem('lsPrice'));
+    totalPrice += obj.price;
+    localStorage.setItem('lsPrice', totalPrice);
 
-    let table = document.querySelector('.items table');
-
-    table.deleteTHead();
-
-    let header = table.createTHead();
-    let rowHeader = header.insertRow(0);
-    let meal = rowHeader.insertCell(0);
-    let price = rowHeader.insertCell(1);
-    meal.innerHTML = "Meal";
-    price.innerHTML = "Price";
-    let body = table.createTBody();
-
-    let bodyRow = body.insertRow(0);
-    let name = bodyRow.insertCell(0);
-    let mealPrice = bodyRow.insertCell(1);
-    name.innerHTML = localStorageMeals[i].title;
-    mealPrice.innerHTML = "€" + localStorageMeals[i].price;
-
-    let currentTotalPrice = parseFloat(localStorage.getItem('lsPrice'));
-    currentTotalPrice += localStorageMeals[i].price;
-    JSON.stringify(currentTotalPrice);
-    localStorage.setItem('lsPrice', currentTotalPrice);
-
-    table.deleteTFoot();
-    table.deleteTFoot();
-
-    let foot = table.createTFoot();
-    let rowFoot = foot.insertRow(0);
-    let empty = rowFoot.insertCell(0);
-    let totalPrice = rowFoot.insertCell(1);
-    empty.innerHTML = "";
-    totalPrice.innerHTML = "Price: € " + currentTotalPrice;
+    displayCart();
 }
 
 function confirm(e) {
@@ -127,26 +106,17 @@ function confirm(e) {
     let price = localStorage.getItem('lsPrice');
     document.querySelector('#confirmation .price').innerHTML = "€" + price;
 
-    let paymentConfirm = document.querySelector("strong.paymentmethod");
-    if (document.getElementById('payment-card').checked) {
-        payment = document.getElementById('payment-card');
-        Payment();
-    }
-    if (document.getElementById('payment-bitcoin').checked) {
-        payment = document.getElementById('payment-bitcoin');
-        Payment();
-    }
-    if (document.getElementById('payment-goldbars').checked) {
-        payment = document.getElementById('payment-goldbars');
-        Payment();
-    }
-    if (document.getElementById('payment-kind').checked) {
-        payment = document.getElementById('payment-kind');
-        Payment();
-    }
-    function Payment() {
-        paymentConfirm.innerHTML = " in "+payment.nextSibling.textContent;
-    }
+    let paymentConfirm = document.querySelector(".paymentmethod");
+    let paymentMethods = document.querySelectorAll('input[name="paymentmethod"]');
+    paymentMethods.forEach(function (e) {
+        if (e.checked) {
+            let id = e.id;
+            paymentConfirm.innerHTML = " in " + document.querySelector('[for="' + id + '"]').innerHTML;
+        }
+    });
+    currentCart = [];
+    cartTeller = 0;
+    totalPrice = 0;
 
     localStorage.removeItem('cartTeller');
     let span = document.querySelector('.viewcart span');

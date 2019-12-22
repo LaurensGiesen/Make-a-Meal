@@ -8,6 +8,7 @@ function init() {
     mealOfTheDay();
     loadDishes(null);
     loadValues();
+    getCurrentCart();
     DOMelement();
     setEventListeners();
     document.querySelector('#sortby').addEventListener('change', mealProperty);
@@ -17,10 +18,9 @@ function init() {
     // shoppingcart
     document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
     document.querySelector(`.close`).addEventListener(`click`, closePopUpDishes);
-    document.querySelector(`.viewcart`).addEventListener(`click`,popUpViewCart);
+    document.querySelector(`.cart`).addEventListener(`click`,popUpViewCart);
     document.querySelector(`#cart .close`).addEventListener(`click`,closePopUps);
     document.querySelector(`#cart .order`).addEventListener(`click`,proceedToCheckOut);
     document.querySelector(`#personalinformation .order`).addEventListener(`click`,finalPopUp);
-    tellerCart();
     orderButton();
 }
