@@ -26,7 +26,7 @@ function popUpDishes(e) {
                          alt="${meal["title"]}"
                          title="${meal["title"]}">
                     <figcaption>
-                        Meal by: <span>$${meal["cook"]}</span>
+                        Meal by: <span>${meal["cook"]}</span>
                     </figcaption>
                 </figure>
                 <div class="info">

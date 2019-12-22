@@ -23,4 +23,5 @@ function loadDishes(meals) {
                 </div>
             </article>`
     })
+
 }

@@ -1,3 +1,12 @@
+function getMeals() {
+    let extraMeal = JSON.parse(localStorage.getItem("lsNewMeal"));
+    let newMeals = [...meals];
+    if(extraMeal !== null) {
+        newMeals.push(extraMeal);
+    }
+    return newMeals;
+}
+
 const meals = [
     {
         id: 1,
@@ -262,4 +271,4 @@ const meals = [
         price: 10,
         cook: 'James Wise',
         quantity: 10
-    }];
+    }]

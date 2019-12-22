@@ -11,6 +11,7 @@ function init() {
     getCurrentCart();
     DOMelement();
     setEventListeners();
+    addMealButton();
     document.querySelector('#sortby').addEventListener('change', mealProperty);
     document.querySelector('#direction').addEventListener('change', adjustMealsDirection);
     document.querySelector(`.flexcontainer`).addEventListener(`click`, popUpDishes);
