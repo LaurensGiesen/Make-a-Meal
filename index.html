@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Howest Fresh</title>
@@ -7,10 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css"/>
     <link rel="stylesheet" href="assets/css/screen.css"/>
-
 </head>
 <body>
-
 <header>
     <h1>Howest Fresh</h1>
     <nav>
@@ -29,17 +28,18 @@
             Meal of the day
         </h2>
         <div>
-            <p><span>Each day we select a different meal for you to enjoy. This should keep you fresh and motivated to let go
-            of
-                those fatty ready meals and enjoy life!</span></p>
+            <p><span>Each day we select a different meal for you to enjoy. This should keep you fresh and motivated to let go of those fatty ready meals and enjoy life!</span>
+            </p>
             <p><span>Today's special pick is</span>
+
             </p>
         </div>
     </section>
+
     <aside>
-        <p>
-            deliverable dishes and counting!</p>
+        <p>deliverable dishes and counting!</p>
     </aside>
+
     <section id="collection">
         <h2>Our collection of meals</h2>
         <p>Browse our large selection of meals and have your delivered to you at a moment of your choosing</p>
@@ -47,10 +47,11 @@
 
         <form action="#" method="post" id="filters">
 
-            <label for="search">Search</label><input type="search" name="search" id="search"/>
+            <label for="search">Search</label>
+            <input type="search" name="search" id="search"/>
+
             <label>Sort items by
-                <select id="sortby" name="sortby">
-                </select>
+                <select id="sortby" name="sortby"></select>
             </label>
 
             <select id="direction" name="direction">
@@ -63,6 +64,7 @@
         </div>
     </section>
 </main>
+
 <footer>
     <div>
         <h2>Address</h2>
@@ -77,17 +79,18 @@
     </div>
     <p>All images courtesy of flaticon</p>
 </footer>
-<section id="popup" class="hidden">
 
+<section id="popup" class="hidden">
     <div class="contentwrapper"></div>
     <a href="#" class="close">X</a>
 </section>
+
 <section id="cart" class="hidden">
     <div id="cartoverview">
         <h2>Your shopping cart</h2>
         <p>You have selected the following items so far:</p>
         <div class="items">
-
+            <table></table>
         </div>
 
         <a href="#" class="order">Proceed to checkout</a>
@@ -101,23 +104,26 @@
             <textarea id="orderaddress" name="orderaddress"></textarea>
 
             <label>Payment method:</label>
-            <input type="radio" name="paymentmethod" id="payment-card" value="card"/><label
-                for="payment-card">Card</label>
-            <input type="radio" name="paymentmethod" id="payment-bitcoin" value="bitcoin"/><label for="payment-bitcoin">Bitcoin</label>
-            <input type="radio" name="paymentmethod" id="payment-goldbars" value="gold_bars"/><label
-                for="payment-goldbars">Gold
-            bars</label>
-            <input type="radio" name="paymentmethod" id="payment-kind" value="in_kind"/><label for="payment-kind">In
-            kind</label>
+            <input type="radio" name="paymentmethod" id="payment-card" value="card"/>
+            <label for="payment-card">Card</label>
+
+            <input type="radio" name="paymentmethod" id="payment-bitcoin" value="bitcoin"/>
+            <label for="payment-bitcoin">Bitcoin</label>
+
+            <input type="radio" name="paymentmethod" id="payment-goldbars" value="gold_bars"/>
+            <label for="payment-goldbars">Gold bars</label>
+
+            <input type="radio" name="paymentmethod" id="payment-kind" value="in_kind"/>
+            <label for="payment-kind">In kind</label>
 
             <input type="submit" value="confirm order" class="order"/>
         </form>
     </div>
     <div id="confirmation" class="hidden">
         <h2>Thank you <span class="personname"></span> for your order</h2>
-        <p>Your order of <strong class="price"></strong> will be paid for <strong class="paymentmethod"></strong>.<br/>
-            We will ship your meals upon payment
-            confirmation</p>
+        <p>Your order of <strong class="price"></strong> will be paid for
+            <strong class="paymentmethod"></strong>.<br/>
+            We will ship your meals upon payment confirmation</p>
     </div>
     <a href="#" class="close">X</a>
 </section>
@@ -133,6 +139,5 @@
 <script src="assets/js/shoppingCart.js"></script>
 <script src="assets/js/search.js"></script>
 <script src="assets/js/sort.js"></script>
-
 </body>
 </html>
