@@ -18,7 +18,7 @@ function mealProperty(e) {
 
     let selectedProperty = e.target.value;
     let ascOrDesc = document.querySelector('#direction').selectedIndex;
-    meals.sort(function (a, b) {
+    newMeals.sort(function (a, b) {
         let propertyA = a[selectedProperty];
         let propertyB = b[selectedProperty];
 
@@ -29,11 +29,15 @@ function mealProperty(e) {
         }
         return 0;
     });
-    if (ascOrDesc === 1) { meals.reverse()}
-    loadDishes(meals);
+
+    if (ascOrDesc === 1) {
+        newMeals.reverse()
+    }
+
+    loadDishes(newMeals);
 }
 
 function adjustMealsDirection(){
-    meals.reverse();
-    loadDishes(meals);
+    newMeals.reverse();
+    loadDishes(newMeals);
 }

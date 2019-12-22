@@ -44,7 +44,8 @@ function popUpDishes(e) {
                     <p>€ <span>${meal["price"]}</span>/pp</p>
                     <a href="#" class="order">Order</a>
                 </div>
-            </article>`
+            </article>`;
+        initPopUpOrderButton();
     }
 }
 

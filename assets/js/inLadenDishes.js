@@ -1,13 +1,21 @@
 "use strict";
 
-function loadDishes(meals) {
+function loadDishes(mealsToLoad) {
     document.querySelector('.flexcontainer').innerHTML ="";
-    if(meals === null) {
-        meals = JSON.parse(localStorage.getItem(`localMeals`));
+    if(mealsToLoad === null) {
+        mealsToLoad = JSON.parse(localStorage.getItem(`localMeals`));
     }
-    meals.forEach(function (meal) {
-        document.querySelector('.flexcontainer').innerHTML +=
-            `<article data-id="${meal.id}">
+
+    resetNewMeals();
+    mealsToLoad.forEach(function (meal) {
+        addMealToList(meal);
+    })
+
+}
+
+function addMealToList(meal) {
+    document.querySelector('.flexcontainer').innerHTML +=
+        `<article data-id="${meal.id}">
                 <h3>${meal.title}</h3>
                 <figure>
                     <img src="images/${meal.img}"
@@ -21,7 +29,12 @@ function loadDishes(meals) {
                     <p>€ <span>${meal.price}</span>/pp</p>
                     <a href="#" class="order">Order</a>
                 </div>
-            </article>`
-    })
+            </article>`;
 
+    initOrderButton();
+    newMeals.push(meal);
+}
+
+function resetNewMeals() {
+    newMeals = [];
 }
