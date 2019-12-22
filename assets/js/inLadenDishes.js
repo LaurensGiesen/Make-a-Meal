@@ -1,11 +1,5 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded',init2);
-
-function init2() {
-    inLadenDishes(null);
-}
-
 function inLadenDishes(meals) {
     document.querySelector('.flexcontainer').innerHTML ="";
     if(meals === null) {

@@ -1,12 +1,6 @@
 "use strict";
-
-document.addEventListener('DOMContentLoaded',init);
 let searchField;
 
-function init(){
-    DOMelement();
-    setEventListeners();
-}
 function DOMelement(){
     searchField =  document.querySelector('#search');
 }
@@ -39,4 +33,5 @@ function SearchList() {
             </article>`
         }
     }
+    orderButton();
 }

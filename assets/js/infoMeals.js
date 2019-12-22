@@ -1,12 +1,5 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded', init1);
-
-function init1() {
-    document.querySelector(`.flexcontainer`).addEventListener(`click`, popUpDishes);
-    document.querySelector(`.close`).addEventListener(`click`, closePopUpDishes);
-}
-
 function popUpDishes(e) {
     if (e.target.tagName === "IMG") {
         let meals = JSON.parse(localStorage.getItem(`localMeals`));

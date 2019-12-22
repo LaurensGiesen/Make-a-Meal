@@ -1,11 +1,5 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded',init4);
-
-function init4() {
-    mealOfTheDay();
-}
-
 function mealOfTheDay(){
     let randomMeals =  meals[Math.floor((Math.random() * meals.length))];
     let imageMeal = document.querySelector(`#mealoftheday`);
