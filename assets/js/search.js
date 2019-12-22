@@ -8,6 +8,7 @@ function DOMelement(){
 function setEventListeners(){
     searchField.addEventListener("keyup", SearchList);
 }
+
 function SearchList() {
     let length = meals.length;
     let searchString = searchField.value;

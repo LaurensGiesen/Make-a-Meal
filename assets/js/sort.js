@@ -1,6 +1,6 @@
 "use strict";
 
-function inLadenValues() {
+function loadValues() {
     document.querySelector(`#sortby`).innerHTML =
         `<option value="book">Book</option>
          <option value="calories">Calories</option>
@@ -31,10 +31,10 @@ function mealProperty(e) {
         return 0;
     });
     if(ascOrDesc === 1){ meals.reverse()}
-    inLadenDishes(meals);
+    loadDishes(meals);
 }
 
 function adjustMealsDirection(){
     meals.reverse();
-    inLadenDishes(meals);
+    loadDishes(meals);
 }

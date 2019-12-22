@@ -1,11 +1,11 @@
 "use strict";
 
-function inLadenDishes(meals) {
+function loadDishes(meals) {
     document.querySelector('.flexcontainer').innerHTML ="";
     if(meals === null) {
         meals = JSON.parse(localStorage.getItem(`localMeals`));
     }
-    meals.forEach(function(meal){
+    meals.forEach(function (meal) {
         document.querySelector('.flexcontainer').innerHTML +=
             `<article data-id="${meal.id}">
                 <h3>${meal.title}</h3>

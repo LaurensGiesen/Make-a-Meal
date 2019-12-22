@@ -8,5 +8,3 @@ function mealOfTheDay(){
     let textMeal = document.querySelector(`#mealoftheday div p+p`);
     textMeal.innerHTML += `<strong>${randomMeals.title}</strong>`;
 }
-
-

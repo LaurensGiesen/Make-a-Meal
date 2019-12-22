@@ -1,9 +1,9 @@
 "use strict";
 
 function popUpDishes(e) {
+    e.preventDefault();
     if (e.target.tagName === "IMG") {
         let meals = JSON.parse(localStorage.getItem(`localMeals`));
-        e.preventDefault();
         if (e.target.tagName !== "A") {
             document.querySelector(`#popup`).classList.remove(`hidden`);
         }

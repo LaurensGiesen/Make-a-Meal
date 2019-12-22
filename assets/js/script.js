@@ -1,11 +1,13 @@
 'use strict';
+
 document.addEventListener('DOMContentLoaded',init);
 
 function init() {
+    initLocalStorage();
     totalMeals();
     mealOfTheDay();
-    inLadenDishes(null);
-    inLadenValues();
+    loadDishes(null);
+    loadValues();
     DOMelement();
     setEventListeners();
     document.querySelector('#sortby').addEventListener('change', mealProperty);
@@ -14,7 +16,7 @@ function init() {
     document.querySelector(`.close`).addEventListener(`click`, closePopUpDishes);
     // shoppingcart
     document.querySelector(`#collection .flexcontainer`).addEventListener(`click`,popUpDishes);
-    document.querySelector(`.close`).addEventListener(`click`,closePopUpDishes);
+    document.querySelector(`.close`).addEventListener(`click`, closePopUpDishes);
     document.querySelector(`.viewcart`).addEventListener(`click`,popUpViewCart);
     document.querySelector(`#cart .close`).addEventListener(`click`,closePopUps);
     document.querySelector(`#cart .order`).addEventListener(`click`,proceedToCheckOut);
@@ -22,4 +24,3 @@ function init() {
     tellerCart();
     orderButton();
 }
-
