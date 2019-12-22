@@ -70,10 +70,16 @@ function initOrderButton() {
     for (let i = 0; i < order.length; i++) {
         order[i].addEventListener("click", function(e) {
             e.preventDefault();
+            e.target.classList.add(`addedtocart`);
+            e.target.addEventListener('transitionend', transitionEnd);
             plusTeller();
             addToCart(i);
         });
     }
+}
+
+function transitionEnd(e) {
+    e.target.classList.remove('addedtocart');
 }
 
 function initPopUpOrderButton() {
@@ -81,6 +87,8 @@ function initPopUpOrderButton() {
     for (let i = 0; i < order.length; i++) {
         order[i].addEventListener("click", function(e) {
             e.preventDefault();
+            e.target.classList.add(`addedtocart`);
+            e.target.addEventListener('transitionend', transitionEnd);
             plusTeller();
             addToCart(i);
         });
