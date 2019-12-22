@@ -14,7 +14,6 @@ function getCurrentCart() {
         document.querySelector('.cart').innerHTML = `<a href='#' class='viewcart'>view cart</a>`;
     } else if (localStorage.getItem('currentCart') !== null && localStorage.cartTeller >= 1) {
         currentCart = JSON.parse(localStorage.getItem('currentCart'));
-        console.log(currentCart);
         cartTeller = parseInt(localStorage.getItem('cartTeller'));
         totalPrice = parseInt(localStorage.getItem('lsPrice'));
         displayCart();
@@ -25,11 +24,12 @@ function getCurrentCart() {
 
 function displayCart() {
     document.querySelector('.cart').innerHTML = "<a href='#' class='viewcart'><span>" + cartTeller + "</span> view cart</a>";
-    document.querySelector('.items table').innerHTML = '<tr><th>Meal</th><th>Price</th></tr>';
+    document.querySelector('.items table').innerHTML = '<thead><tr><th>Meal</th><th>Price</th></tr></thead>';
+    document.querySelector('.items table').innerHTML += '<tbody></tbody>';
     currentCart.forEach(e => {
-        document.querySelector('.items table').innerHTML += '<tr><td>' + e.title + '</td><td>€' + e.price + '</td></tr>';
+        document.querySelector('.items table tbody').innerHTML += '<tr><td>' + e.title + '</td><td>€' + e.price + '</td></tr>';
     });
-    document.querySelector('.items table').innerHTML += '<tr><td></td><td>Price: €' + totalPrice + '</td></tr>'
+    document.querySelector('.items table tbody').innerHTML += '<tr><td></td><td>Price: €' + totalPrice + '</td></tr>'
 }
 
 function getMeals() {
@@ -65,8 +65,19 @@ function finalPopUp(e) {
     document.querySelector(`#confirmation`).classList.remove(`hidden`);
 }
 
-function orderButton() {
+function initOrderButton() {
     let order = document.querySelectorAll('.flexcontainer .order');
+    for (let i = 0; i < order.length; i++) {
+        order[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            plusTeller();
+            addToCart(i);
+        });
+    }
+}
+
+function initPopUpOrderButton() {
+    let order = document.querySelectorAll('#popup .contentwrapper .order');
     for (let i = 0; i < order.length; i++) {
         order[i].addEventListener("click", function(e) {
             e.preventDefault();
@@ -123,4 +134,13 @@ function confirm(e) {
     span.parentNode.removeChild(span);
     localStorage.removeItem('currentCart');
     localStorage.removeItem('lsPrice');
+
+    loadDishes( null );
+    resetShoppingCart();
+}
+
+function resetShoppingCart() {
+    localStorage.setItem(`currentCart`, []);
+    localStorage.setItem(`cartTeller`, 0);
+    localStorage.setItem(`lsPrice`, 0);
 }
