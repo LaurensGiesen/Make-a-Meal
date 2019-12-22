@@ -6,8 +6,9 @@
     <title>Howest Fresh</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/reset.css"/>
-    <link rel="stylesheet" href="assets/css/screen.css"/>
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/screen.css" />
+
 </head>
 <body>
 <header>
@@ -16,7 +17,7 @@
         <ul>
             <li><a href="index.html" class="active">Collection</a></li>
             <li><a href="make-a-meal.html">Make a meal</a></li>
-            <li><a href="#" class="viewcart">view cart</a></li>
+            <li class="cart"></li>
         </ul>
 
     </nav>
@@ -28,8 +29,8 @@
             Meal of the day
         </h2>
         <div>
-            <p><span>Each day we select a different meal for you to enjoy. This should keep you fresh and motivated to let go of those fatty ready meals and enjoy life!</span>
-            </p>
+            <p><span>Each day we select a different meal for you to enjoy. This should keep you fresh and motivated
+                        to let go of those fatty ready meals and enjoy life!</span></p>
             <p><span>Today's special pick is</span>
 
             </p>
@@ -37,7 +38,7 @@
     </section>
 
     <aside>
-        <p>deliverable dishes and counting!</p>
+        <p></p>
     </aside>
 
     <section id="collection">
@@ -48,7 +49,7 @@
         <form action="#" method="post" id="filters">
 
             <label for="search">Search</label>
-            <input type="search" name="search" id="search"/>
+            <input type="search" name="search" id="search" />
 
             <label>Sort items by
                 <select id="sortby" name="sortby"></select>
@@ -69,7 +70,7 @@
     <div>
         <h2>Address</h2>
         <address>
-            Rijselstraat 5, <br/>
+            Rijselstraat 5, <br />
             8000 Brugge
         </address>
     </div>
@@ -98,31 +99,31 @@
     <div id="personalinformation" class="hidden">
         <form>
             <label for="ordername">Full name:</label>
-            <input type="text" id="ordername" name="ordername"/>
+            <input type="text" id="ordername" name="ordername" />
 
             <label for="orderaddress">Address:</label>
             <textarea id="orderaddress" name="orderaddress"></textarea>
 
             <label>Payment method:</label>
-            <input type="radio" name="paymentmethod" id="payment-card" value="card"/>
+            <input type="radio" name="paymentmethod" id="payment-card" value="card" />
             <label for="payment-card">Card</label>
 
-            <input type="radio" name="paymentmethod" id="payment-bitcoin" value="bitcoin"/>
+            <input type="radio" name="paymentmethod" id="payment-bitcoin" value="bitcoin" />
             <label for="payment-bitcoin">Bitcoin</label>
 
-            <input type="radio" name="paymentmethod" id="payment-goldbars" value="gold_bars"/>
+            <input type="radio" name="paymentmethod" id="payment-goldbars" value="gold_bars" />
             <label for="payment-goldbars">Gold bars</label>
 
-            <input type="radio" name="paymentmethod" id="payment-kind" value="in_kind"/>
+            <input type="radio" name="paymentmethod" id="payment-kind" value="in_kind" />
             <label for="payment-kind">In kind</label>
 
-            <input type="submit" value="confirm order" class="order"/>
+            <input type="submit" value="confirm order" class="order" />
         </form>
     </div>
     <div id="confirmation" class="hidden">
         <h2>Thank you <span class="personname"></span> for your order</h2>
         <p>Your order of <strong class="price"></strong> will be paid for
-            <strong class="paymentmethod"></strong>.<br/>
+            <strong class="paymentmethod"></strong>.<br />
             We will ship your meals upon payment confirmation</p>
     </div>
     <a href="#" class="close">X</a>

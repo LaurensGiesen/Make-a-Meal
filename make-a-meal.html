@@ -105,14 +105,17 @@
             <textarea id="orderaddress" name="orderaddress"></textarea>
 
             <label>Payment method:</label>
-            <input type="radio" name="paymentmethod" id="payment-card" value="card"/><label
-                for="payment-card">Card</label>
-            <input type="radio" name="paymentmethod" id="payment-bitcoin" value="bitcoin"/><label for="payment-bitcoin">Bitcoin</label>
-            <input type="radio" name="paymentmethod" id="payment-goldbars" value="gold_bars"/><label
-                for="payment-goldbars">Gold
-            bars</label>
-            <input type="radio" name="paymentmethod" id="payment-kind" value="in_kind"/><label for="payment-kind">In
-            kind</label>
+            <input type="radio" name="paymentmethod" id="payment-card" value="card"/>
+            <label for="payment-card">Card</label>
+
+            <input type="radio" name="paymentmethod" id="payment-bitcoin" value="bitcoin"/>
+            <label for="payment-bitcoin">Bitcoin</label>
+
+            <input type="radio" name="paymentmethod" id="payment-goldbars" value="gold_bars"/>
+            <label for="payment-goldbars">Gold bars</label>
+
+            <input type="radio" name="paymentmethod" id="payment-kind" value="in_kind"/>
+            <label for="payment-kind">In kind</label>
 
             <input type="submit" value="confirm order" class="order"/>
         </form>
@@ -120,10 +123,11 @@
     <div id="confirmation" class="hidden">
         <h2>Thank you <span class="personname"></span> for your order</h2>
         <p>Your order of <strong class="price"></strong> will be paid for <strong class="paymentmethod"></strong>.<br/>
-            We will ship your meals upon payment
-            confirmation</p>
+            We will ship your meals upon payment confirmation</p>
     </div>
     <a href="#" class="close">X</a>
 </section>
+
+<script src="assets/js/addMeal.js"></script>
 </body>
 </html>

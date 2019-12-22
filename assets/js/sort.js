@@ -22,15 +22,14 @@ function mealProperty(e) {
         let propertyA = a[selectedProperty];
         let propertyB = b[selectedProperty];
 
-        if(propertyA < propertyB){
+        if (propertyA < propertyB) {
             return -1;
-        }
-        if(propertyA > propertyB){
+        } else if(propertyA > propertyB) {
             return 1;
         }
         return 0;
     });
-    if(ascOrDesc === 1){ meals.reverse()}
+    if (ascOrDesc === 1) { meals.reverse()}
     loadDishes(meals);
 }
 
